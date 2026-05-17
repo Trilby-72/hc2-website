@@ -125,6 +125,8 @@ export default function HC2Site() {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
+  const [submitting, setSubmitting] = useState(false);
+
   const validate = () => {
     const e = {};
     if (!form.name.trim()) e.name = "Name is required";
@@ -134,11 +136,33 @@ export default function HC2Site() {
     return e;
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     const errs = validate();
     if (Object.keys(errs).length) { setErrors(errs); return; }
-    setSubmitted(true);
+    setSubmitting(true);
+    try {
+      const res = await fetch("https://formspree.io/f/maqkwdbw", {
+        method: "POST",
+        headers: { "Content-Type": "application/json", "Accept": "application/json" },
+        body: JSON.stringify({
+          name: form.name,
+          company: form.company,
+          email: form.email,
+          phone: form.phone,
+          message: form.message,
+        }),
+      });
+      if (res.ok) {
+        setSubmitted(true);
+      } else {
+        setErrors({ submit: "Something went wrong. Please try again or email us directly." });
+      }
+    } catch {
+      setErrors({ submit: "Something went wrong. Please check your connection and try again." });
+    } finally {
+      setSubmitting(false);
+    }
   };
 
   return (
@@ -605,7 +629,10 @@ export default function HC2Site() {
                     <textarea className={`form-field${errors.message ? " error" : ""}`} rows={5} value={form.message} onChange={e => setForm(f => ({...f, message: e.target.value}))} placeholder="Tell us about your Workday needs, the challenges you're facing, or what you'd like to achieve..." style={{ resize: "vertical" }} />
                     {errors.message && <p style={{ color: "#B01A2E", fontSize: "0.78rem", marginTop: 4 }}>{errors.message}</p>}
                   </div>
-                  <button className="submit-btn" onClick={handleSubmit}>Send Enquiry →</button>
+                  <button className="submit-btn" onClick={handleSubmit} disabled={submitting}>
+                    {submitting ? "Sending..." : "Send Enquiry →"}
+                  </button>
+                  {errors.submit && <p style={{ color: "#B01A2E", fontSize: "0.85rem", marginTop: 10 }}>{errors.submit}</p>}
                   <p style={{ fontSize: "0.78rem", color: "#999", marginTop: 12 }}>We typically respond within one business day.</p>
                 </div>
               ) : (
