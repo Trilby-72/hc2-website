@@ -406,23 +406,21 @@ export default function HC2Site() {
         overflow: "hidden",
         paddingTop: 68,
       }}>
-        {/* Geometric background */}
-        <div style={{ position: "absolute", inset: 0, overflow: "hidden", pointerEvents: "none" }}>
-          <div style={{ position: "absolute", right: -80, top: -80, width: 600, height: 600, borderRadius: "50%", background: "radial-gradient(circle, rgba(176,26,46,0.18) 0%, transparent 70%)" }} />
-          <div style={{ position: "absolute", left: "30%", bottom: -120, width: 400, height: 400, borderRadius: "50%", background: "radial-gradient(circle, rgba(176,26,46,0.10) 0%, transparent 70%)" }} />
-          <svg style={{ position: "absolute", right: 60, top: "50%", transform: "translateY(-50%)", opacity: 0.06 }} width="480" height="480" viewBox="0 0 480 480" fill="none">
-            <circle cx="240" cy="240" r="230" stroke="white" strokeWidth="1" />
-            <circle cx="240" cy="240" r="180" stroke="white" strokeWidth="1" />
-            <circle cx="240" cy="240" r="130" stroke="white" strokeWidth="1" />
-            <circle cx="240" cy="240" r="80" stroke="white" strokeWidth="1" />
-            <line x1="10" y1="240" x2="470" y2="240" stroke="white" strokeWidth="0.5" />
-            <line x1="240" y1="10" x2="240" y2="470" stroke="white" strokeWidth="0.5" />
-          </svg>
-          {/* Grid lines */}
-          <div style={{ position: "absolute", inset: 0, backgroundImage: "linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px)", backgroundSize: "60px 60px" }} />
-          {/* Accent bar */}
-          <div style={{ position: "absolute", left: 0, top: "40%", width: 4, height: "25%", background: "#B01A2E" }} />
-        </div>
+        {/* Background image */}
+        <div style={{
+          position: "absolute", inset: 0,
+          backgroundImage: "url('https://images.unsplash.com/photo-1660101477285-448428468eed?fm=jpg&q=80&w=2000&fit=crop')",
+          backgroundSize: "cover",
+          backgroundPosition: "center center",
+          backgroundRepeat: "no-repeat",
+        }} />
+        {/* Dark overlay — navy tinted for brand consistency */}
+        <div style={{
+          position: "absolute", inset: 0,
+          background: "linear-gradient(135deg, rgba(30,52,72,0.92) 0%, rgba(20,35,54,0.85) 50%, rgba(127,15,28,0.25) 100%)",
+        }} />
+        {/* Accent bar */}
+        <div style={{ position: "absolute", left: 0, top: "40%", width: 4, height: "25%", background: "#B01A2E", zIndex: 2 }} />
 
         <div style={{ maxWidth: 1200, margin: "0 auto", padding: "80px 32px", position: "relative", zIndex: 2, width: "100%" }}>
           {/* Workday badges */}
@@ -448,7 +446,7 @@ export default function HC2Site() {
 
           <p style={{
             fontSize: "1.15rem",
-            color: "rgba(255,255,255,0.65)",
+            color: "rgba(255,255,255,0.88)",
             lineHeight: 1.75,
             maxWidth: 560,
             marginBottom: 40,
