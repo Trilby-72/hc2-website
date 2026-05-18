@@ -424,6 +424,11 @@ export default function HC2Site() {
         <div style={{ position: "absolute", left: 0, top: "40%", width: 4, height: "25%", background: "#B01A2E", zIndex: 2 }} />
 
         <div style={{ maxWidth: 1200, margin: "0 auto", padding: "80px 32px", position: "relative", zIndex: 2, width: "100%" }}>
+          {/* Workday badges */}
+          <div style={{ display: "flex", gap: 16, alignItems: "center", marginBottom: 36, animation: "fadeSlideDown 0.7s ease both" }}>
+            <img src={WORKDAY_PARTNER_LOGO} alt="Workday Services Partner" style={{ height: 72, objectFit: "contain", display: "block" }} />
+            <img src={WORKDAY_SALES_LOGO} alt="Workday Sales Partner" style={{ height: 72, objectFit: "contain", display: "block" }} />
+          </div>
 
           <h1 className="hero-headline" style={{
             fontFamily: "'Playfair Display', Georgia, serif",
@@ -457,11 +462,6 @@ export default function HC2Site() {
             <button className="cta-btn-outline" onClick={() => scrollTo("services")}>Our Services</button>
           </div>
 
-          {/* Workday badges */}
-          <div style={{ display: "flex", gap: 16, alignItems: "center", marginTop: 36, animation: "fadeSlideUp 0.8s ease 0.4s both" }}>
-            <img src={WORKDAY_PARTNER_LOGO} alt="Workday Services Partner" style={{ height: 72, objectFit: "contain", display: "block" }} />
-            <img src={WORKDAY_SALES_LOGO} alt="Workday Sales Partner" style={{ height: 72, objectFit: "contain", display: "block" }} />
-          </div>
 
         </div>
 
