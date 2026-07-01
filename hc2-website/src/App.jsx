@@ -556,6 +556,91 @@ export default function HC2Site() {
         </div>
       </section>
 
+      {/* HOW WE HELP */}
+      <section id="how-we-help" style={{ padding: "100px 32px", background: "#1E3448", color: "#fff", position: "relative", overflow: "hidden" }}>
+        <div style={{ position: "absolute", right: -100, bottom: -100, width: 500, height: 500, borderRadius: "50%", background: "radial-gradient(circle, rgba(176,26,46,0.12) 0%, transparent 70%)", pointerEvents: "none" }} />
+        <div style={{ position: "absolute", right: 0, top: 0, bottom: 0, width: 4, background: "linear-gradient(to bottom, transparent, #B01A2E, transparent)" }} />
+
+        <div style={{ maxWidth: 1200, margin: "0 auto", position: "relative", zIndex: 2 }}>
+          <FadeIn>
+            <span className="section-label">How We Help</span>
+            <h2 style={{ fontFamily: "'Playfair Display', serif", fontSize: "2.8rem", fontWeight: 900, lineHeight: 1.15, maxWidth: 700, marginBottom: 16 }}>
+              Workday Expertise Across the <span style={{ color: "#B01A2E" }}>Full Lifecycle</span>
+            </h2>
+            <p style={{ color: "rgba(255,255,255,0.7)", fontSize: "1.05rem", lineHeight: 1.75, maxWidth: 640, marginBottom: 60 }}>
+              Whether you're mid-implementation, recovering from a difficult go-live, or looking to maximise your existing investment — HC2 has the experience to help.
+            </p>
+          </FadeIn>
+
+          <div style={{ display: "grid", gridTemplateColumns: "repeat(2, 1fr)", gap: 24 }} className="howwehelp-grid">
+            {[
+              {
+                title: "Empowering Your Workday Journey: From Recovery to Excellence",
+                body: "We specialise in stepping in during Workday projects to elevate System Integration partners, ensuring accountability for delivery shortfalls. Our expert team assesses and refines project strategies, paving the way for successful deployments. Post-implementation, we focus on recovery efforts for organisations struggling with poor Workday implementations, providing tailored solutions to restore functionality and confidence in the system.",
+              },
+              {
+                title: "Transforming Challenges into Solutions: Your Workday Success Partner",
+                body: "Beyond initial deployments, we facilitate the seamless integration of additional Workday modules. Our approach ensures that organisations can leverage the full potential of Workday's offerings, enhance their HR capabilities while aligning with evolving business needs.",
+              },
+              {
+                title: "From Implementation to Self-Sufficiency: Navigating Your Workday with Confidence",
+                body: "We offer comprehensive business readiness services to prepare your organisation for change. Our team provides structured change management, ensuring smooth transitions and employee engagement throughout the Workday journey.",
+              },
+              {
+                title: "Revive, Enhance, Empower: Mastering Workday Together",
+                body: "Our AMS model goes beyond traditional support. We focus on empowering your internal teams through on-the-job training, fostering self-sufficiency and confidence in managing Workday. Post-engagement, your organisation will have the skills to operate independently, ensuring long-term success.",
+              },
+            ].map((item, i) => (
+              <FadeIn key={i} delay={i * 0.1}>
+                <div style={{
+                  padding: "36px 32px",
+                  background: "rgba(255,255,255,0.04)",
+                  border: "1px solid rgba(255,255,255,0.08)",
+                  borderLeft: "4px solid #B01A2E",
+                  height: "100%",
+                  boxSizing: "border-box",
+                  transition: "background 0.2s",
+                }}
+                  onMouseEnter={e => e.currentTarget.style.background = "rgba(255,255,255,0.07)"}
+                  onMouseLeave={e => e.currentTarget.style.background = "rgba(255,255,255,0.04)"}
+                >
+                  <h3 style={{ fontSize: "1.05rem", fontWeight: 700, color: "#fff", marginBottom: 14, lineHeight: 1.4 }}>{item.title}</h3>
+                  <p style={{ color: "rgba(255,255,255,0.65)", fontSize: "0.92rem", lineHeight: 1.8 }}>{item.body}</p>
+                </div>
+              </FadeIn>
+            ))}
+          </div>
+
+          {/* Fifth card — full width */}
+          <FadeIn delay={0.4}>
+            <div style={{
+              marginTop: 24,
+              padding: "36px 32px",
+              background: "rgba(176,26,46,0.08)",
+              border: "1px solid rgba(176,26,46,0.2)",
+              borderLeft: "4px solid #B01A2E",
+              transition: "background 0.2s",
+            }}
+              onMouseEnter={e => e.currentTarget.style.background = "rgba(176,26,46,0.13)"}
+              onMouseLeave={e => e.currentTarget.style.background = "rgba(176,26,46,0.08)"}
+            >
+              <h3 style={{ fontSize: "1.05rem", fontWeight: 700, color: "#fff", marginBottom: 14, lineHeight: 1.4 }}>Your Trusted Workday Partner: From Vision to Value</h3>
+              <p style={{ color: "rgba(255,255,255,0.65)", fontSize: "0.92rem", lineHeight: 1.8, maxWidth: 900 }}>As your trusted Workday partner, we guide you from Vision to Value, leveraging our certification and strong client relationships. Our team, composed of seasoned professionals with decades of client-side experience, ensures that implementations are aligned with business needs, enhancing employee experiences. We specialise in delivering complex time tracking and payroll solutions through our skilled technical team and robust project management. Post-implementation, we provide ongoing support and adaptability to ensure you maximise your Workday investment and continuously improve organisational efficiency.</p>
+            </div>
+          </FadeIn>
+
+          <FadeIn delay={0.5}>
+            <div style={{ marginTop: 48, textAlign: "center" }}>
+              <button className="cta-btn" onClick={() => scrollTo("contact")}>Talk to Our Team</button>
+            </div>
+          </FadeIn>
+        </div>
+
+        <style>{`
+          @media (max-width: 768px) { .howwehelp-grid { grid-template-columns: 1fr !important; } }
+        `}</style>
+      </section>
+
       {/* INDUSTRIES */}
       <section id="industries" style={{ padding: "100px 32px", background: "#F0F4F8" }}>
         <div style={{ maxWidth: 1200, margin: "0 auto" }}>
